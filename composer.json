@@ -1,0 +1,53 @@
+{
+  "name": "bopdesign/terminus-scripts-plugin",
+  "description": "Terminus Scripts - A Terminus plugin that has commonly used commands put into aliases.",
+  "homepage": "https://github.com/bopdesign/terminus-scripts-plugin",
+  "license": "MIT",
+  "type": "terminus-plugin",
+  "authors": [
+    {
+      "name": "Aivaras Stankevicius",
+      "email": "aivaras@bopdesign.com",
+      "homepage": "https://github.com/bopdesign",
+      "role": "Web Developer"
+    }
+  ],
+  "keywords": [
+    "pantheon",
+    "terminus",
+    "connection",
+    "cache",
+    "plugin",
+    "backup"
+  ],
+  "scripts": {
+    "install-bats": "if [ ! -f bin/bats ] ; then git clone https://github.com/sstephenson/bats.git; mkdir -p bin; bats/install.sh .; fi",
+    "bats": "TERMINUS_PLUGINS_DIR=.. bin/bats tests",
+    "cs": "phpcs --standard=PSR2 -n src",
+    "cbf": "phpcbf --standard=PSR2 -n src",
+    "test": [
+      "@install-bats",
+      "@bats",
+      "@cs"
+    ]
+  },
+  "require": {
+    "php": ">=5.4"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^2.7"
+  },
+  "support": {
+    "issues": "https://github.com/bopdesign/terminus-scripts-plugin/issues"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pantheon\\TerminusConnectionSet\\": "src"
+    }
+  },
+  "extra": {
+    "terminus": {
+      "compatible-version": "^1"
+    }
+  }
+}

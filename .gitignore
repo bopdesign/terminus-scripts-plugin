@@ -1,0 +1,9 @@
+/vendor/
+/bats/
+/bin/
+/libexec/
+/share/
+/.idea/
+/tests
+/src/scripts
+/src/Commands/SitePushUpdateCommand.php
